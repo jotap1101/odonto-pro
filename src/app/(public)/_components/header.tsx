@@ -9,12 +9,14 @@ import {
   SheetTitle,
   SheetTrigger
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { LogIn, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const session = null;
 
   const navItems = [
     { label: "Profissionais", href: "#profissionais" },
@@ -29,9 +31,28 @@ export default function Header() {
           asChild
           onClick={() => setIsOpen(false)}
         >
-          <Link href={item.href}>{item.label}</Link>
+          <Link
+            href={item.href}
+            className="text-base"
+          >
+            {item.label}
+          </Link>
         </Button>
       ))}
+
+      {session ? (
+        <Link
+          href="/dashboard"
+          className="flex items-center justify-center gap-2"
+        >
+          Acessar clínica
+        </Link>
+      ) : (
+        <Button>
+          <LogIn />
+          Fazer login
+        </Button>
+      )}
     </>
   );
 
