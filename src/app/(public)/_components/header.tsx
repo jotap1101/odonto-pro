@@ -13,7 +13,7 @@ import { LogIn, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Header() {
+export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const session = null;
@@ -50,6 +50,7 @@ export default function Header() {
       ) : (
         <Button>
           <LogIn />
+
           Fazer login
         </Button>
       )}
@@ -64,6 +65,7 @@ export default function Header() {
           className="text-3xl font-bold text-zinc-900"
         >
           Odonto
+
           <span className="text-emerald-500">PRO</span>
         </Link>
 
@@ -92,9 +94,7 @@ export default function Header() {
             <SheetHeader>
               <SheetTitle>Menu</SheetTitle>
 
-              <SheetDescription>
-                Veja nossos links
-              </SheetDescription>
+              <SheetDescription>Veja nossos links</SheetDescription>
 
               <nav className="flex flex-col space-y-4 mt-6">
                 <NavLinks />
